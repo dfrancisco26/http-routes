@@ -22,6 +22,8 @@ export default async function (req, res) {
     console.log(req.body);
     const resourcePath = parts[parts.length - 1];
     const resource = routes[resourcePath];
+    if (!resource) notFound(req, res);
+    else {
     logPrefix('resource: ', resource);
     const handler = resource[httpMethod];
     if (!handler) {
@@ -29,7 +31,8 @@ export default async function (req, res) {
     } else {
       handler(req, res);
     }
-  } else {
+  }
+ } else {
   notFound(req, res);
   }
 }
