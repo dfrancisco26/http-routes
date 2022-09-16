@@ -24,9 +24,14 @@ export default async function (req, res) {
     const resource = routes[resourcePath];
     logPrefix('resource: ', resource);
     const handler = resource[httpMethod];
-    handler(req, res);
-    return;
-  }
-
+    if (!handler) {
+      notFound(req, res);
+    } else {
+      handler(req, res);
+    }
+  } else {
   notFound(req, res);
+  }
 }
+
+// if (httpMethod !== 'get' || 'post' )
