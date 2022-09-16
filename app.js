@@ -1,5 +1,6 @@
 import cats from './lib/routes/cats.js';
 import candies from './lib/routes/candies.js';
+import sauces from './lib/routes/sauces.js';
 import notFound from './lib/not-found.js';
 import bodyParser from './lib/bodyParser.js';
 
@@ -7,7 +8,8 @@ const logPrefix = (...args) => console.log('[SERVER]', ...args);
 
 const routes = {
   candies,
-  cats
+  cats,
+  sauces
 };
 
 export default async function (req, res) {
