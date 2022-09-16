@@ -1,10 +1,9 @@
 import cats from './lib/routes/cats.js';
 import candies from './lib/routes/candies.js';
 import notFound from './lib/not-found.js';
-import chalk from 'chalk';
 import bodyParser from './lib/bodyParser.js';
 
-const logPrefix = (...args) => console.log(chalk.cyan('[SERVER]'), ...args);
+const logPrefix = (...args) => console.log('[SERVER]', ...args);
 
 const routes = {
   candies,
